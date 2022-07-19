@@ -41,6 +41,8 @@ function createCard(book) {
   cardLengthDisplay.textContent = book.pages;
   cardLengthDisplay.classList.add('display__pages')
 
+  //TO-DO: append these items in order, display__card should be first appended to a primary display container to be created
+
   // const cardReadNotifier = document.createElement("span")
   // cardReadNotifier.textContent = book.beenRead;
   // cardReadNotifier.classList.add('')
