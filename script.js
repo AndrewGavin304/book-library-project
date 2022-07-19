@@ -21,6 +21,27 @@ myLibrary.push(new Book('Infinite Jest', 'David Foster Wallace', '852', 'Yes'))
 myLibrary.push(new Book('Infinite Jest', 'David Foster Wallace', '852', 'Yes'))
 myLibrary.push(new Book('Infinite Jest', 'David Foster Wallace', '852', 'Yes'))
 
-// function showLibrary() {
-//   myLibrary.forEach(book => ADD_IT_TO_THE_DISPLAY)
-// }
+function showLibrary() {
+  myLibrary.forEach(book => createCard(book));
+}
+
+function createCard(book) {
+  const newDiv = document.createElement("div")
+  newDiv.classList.add('display__card')
+
+  const cardHeader = document.createElement("h1")
+  cardHeader.textContent = book.title;
+  cardHeader.classList.add('display__title')
+
+  const cardSubHeader = document.createElement("h2")
+  cardSubHeader.textContent = book.author;
+  cardSubHeader.classList.add('display__author')
+
+  const cardLengthDisplay = document.createElement("span")
+  cardLengthDisplay.textContent = book.pages;
+  cardLengthDisplay.classList.add('display__pages')
+
+  // const cardReadNotifier = document.createElement("span")
+  // cardReadNotifier.textContent = book.beenRead;
+  // cardReadNotifier.classList.add('')
+}
