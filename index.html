@@ -10,27 +10,25 @@
   <title>Document</title>
 </head>
 <body class="body">
-  <div class="library-wrapper">
-    <div class="library">
+  <div class="header">
+    <button class="btn header__new-book">+New Book</button>
+    <div class="form-wrapper" style="display:none">
+      <form class="form-wrapper__form">
+        <label for="title-input">Title:</label>
+        <input type="text" id="title-input" class="form-wrapper__input title-input">
+        <label for="author-input">Author:</label>
+        <input type="text" id="author-input" class="form-wrapper__input author-input">
+        <label for="pages-input">Pages:</label>
+        <input type="text" id="pages-input" class="form-wrapper__input pages-input">
+        <div class="checkbox-wrapper">
+        <input type="checkbox" id="read" name="read" class="read-input">
+        <label for="read">I've read this book</label>
+        </div>
+        <button type="button" class="form-wrapper__submit" onclick="addBookToLibrary()">Submit book</button>
+      </form>
     </div>
-    <div class="add-book-wrapper">
-      <button class="btn add-book-wrapper__btn">+New Book</button>
-      <div class="form-wrapper" style="display:none">
-        <form class="form-wrapper__form">
-          <label for="title-input">Title:</label>
-          <input type="text" id="title-input" class="form-wrapper__input">
-          <label for="author-input">Author:</label>
-          <input type="text" id="author-input" class="form-wrapper__input">
-          <label for="pages-input">Pages:</label>
-          <input type="text" id="pages-input" class="form-wrapper__input">
-          <div class="checkbox-wrapper">
-          <input type="checkbox" id="read" name="read">
-          <label for="read">I've read this book</label>
-          </div>
-          <button type="submit" class="form-wrapper__submit">Submit book</button>
-        </form>
-      </div>
-    </div>
+  </div>
+  <div class="library">
   </div>
 </body>
 </html>

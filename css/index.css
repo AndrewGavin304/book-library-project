@@ -1,70 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&display=swap");
 html {
-  background-color: #EAE0CC;
+  background-color: #f6f3e5;
   font-size: 24px;
+  font-family: "Ibarra Real Nova", serif;
 }
 
 .body {
-  background-color: #EAE0CC;
-}
-
-.library-wrapper {
-  display: grid;
-  margin: 2rem;
-  background-color: #e3d5ba;
-  border-radius: 8px;
+  background-color: #f6f3e5;
+  box-sizing: border-box;
 }
 
 .library {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  grid-template-rows: -webkit-min-content auto;
+  grid-template-rows: min-content auto;
   justify-items: center;
+  margin: 0vh 10vw;
+  background-color: #F0EAD2;
 }
-.library__card {
+.library__card-outer {
+  border-radius: 2px;
+  background-color: #6C584C;
+  margin: 2rem;
+  width: 12rem;
+  overflow: hidden;
+  height: 16rem;
+  position: relative;
+}
+.library__card-inner {
   display: grid;
   font-size: 24px;
-  grid-template-rows: 2rem 2rem 2rem;
-  width: 12rem;
   padding: 1rem;
-  margin: 2rem;
-  background-color: #A0A083;
-  border-radius: 8px;
+  margin: 0px 0px 0px 1rem;
+  height: 90%;
+  background-color: #907565;
   justify-items: left;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  color: white;
+}
+.library__card-read {
+  position: absolute;
+  width: 30px;
+  height: 80px;
+  background-color: #aa0000;
+  right: 0px;
+  top: -40px;
+  transform: rotate(315deg);
 }
 .library__title {
   font-size: 32px;
 }
 .library__author {
   font-size: 24px;
-}
-.library__pages {
-  font-size: 16px;
+  margin-top: auto;
 }
 
-.add-book-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 33%);
+.header {
+  position: relative;
 }
-.add-book-wrapper__btn {
-  grid-column: 2;
+.header__new-book {
   height: 1.5em;
+  background-color: #ADC178;
+  border: none;
+  border-radius: 4px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 8em;
+  margin: 5vh 10vw 0vh 10vw;
+  color: white;
 }
 
 .form-wrapper {
   display: none;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  flex-basis: 100%;
+  z-index: 9;
+  position: absolute;
+  align-self: flex-start;
+  margin: 0vh 10vw 0vh 10vw;
 }
 .form-wrapper__form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(8, minmax(-webkit-min-content, -webkit-max-content));
+  grid-template-rows: repeat(8, minmax(min-content, max-content));
   padding: 10px;
   gap: 8px;
-  background-color: #EAE0CC;
-  margin: 10px;
+  background-color: #d3deb7;
+  color: #5d4c41;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 .form-wrapper__input {
-  width: 100%;
+  width: 80%;
+  margin: 0.25rem;
+  border: 0;
+  border-radius: 4px;
+  background-color: #F0EAD2;
 }
 .form-wrapper__submit {
   width: 60%;
+  border: 0;
+  border-radius: 4px;
+  background-color: #ADC178;
+  color: white;
+  margin-top: 1rem;
 }
 .form-wrapper .checkbox-wrapper {
   display: flex;

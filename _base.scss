@@ -1,35 +1,55 @@
-html {
-    background-color: $gray;
-    font-size: 24px;
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&display=swap');
 
+html {
+    background-color: lighten($gray, 5);
+    font-size: 24px;
+    font-family: 'Ibarra Real Nova', serif;
 }
 
 .body {
-    background-color: $gray;
-}
-
-.library-wrapper {
-    display: grid;
-    margin: 2rem;
-    background-color: darken($gray, 5);
-    border-radius: $base-border-radius;
+    background-color: lighten($gray, 5);
+    box-sizing: border-box;
 }
 
 .library {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+    grid-template-rows: min-content auto;
     justify-items: center;
+    margin: 0vh 10vw;
+    background-color: $gray;
 
-    &__card {
+    &__card-outer {
+        border-radius: $quarter-border-radius;
+        background-color: $secondary;
+        margin: 2rem;
+        width: clamp(8rem, 12rem, 16rem);
+        overflow: hidden;
+        height: 16rem;
+        position: relative;
+    }
+
+    &__card-inner {
         display: grid;
         font-size: 24px;
-        grid-template-rows: 2rem 2rem 2rem;
-        width: clamp(8rem, 12rem, 16rem);
         padding: 1rem;
-        margin: 2rem;
-        background-color: $primary;
-        border-radius: $base-border-radius;
+        margin: 0px 0px 0px 1rem;
+        height: 90%;
+        background-color: lighten($secondary, 12);
         justify-items: left;
+        border-top-right-radius: $quarter-border-radius;
+        border-bottom-right-radius: $quarter-border-radius;
+        color: white;
+    }
+
+    &__card-read {
+        position: absolute;
+        width: 30px;
+        height: 80px;
+        background-color: #aa0000;
+        right: 0px;
+        top: -40px;
+        transform: rotate(315deg);
     }
 
     &__title {
@@ -38,42 +58,68 @@ html {
 
     &__author {
         font-size: 24px;
+        margin-top: auto;
     }
 
-    &__pages {
-        font-size: 16px;
-    }
+    // &__pages {
+    //     font-size: 16px;
+    // }
 }
 
-.add-book-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 33%);
+.header{
+    position: relative;
 
-    &__btn {
-        grid-column: 2;
-        height: 1.5em;
+    &__new-book {
+    height: 1.5em;
+    background-color: $accent;
+    border: none;
+    border-radius: $half-border-radius;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 8em;
+    margin: 5vh 10vw 0vh 10vw;
+    color: white;
     }
-
 }
 
 .form-wrapper {
     display: none;
+    border-radius: $half-border-radius;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    width: fit-content;
+    flex-basis: 100%;
+    z-index: 9;
+    position: absolute;
+    align-self: flex-start;
+    margin: 0vh 10vw 0vh 10vw;
 
     &__form {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-rows: repeat(8, minmax(min-content, max-content));
         padding: 10px;
         gap: 8px;
-        background-color: $gray;
-        margin: 10px;
+        background-color: lighten($accent, 18);
+        color: darken($secondary, 5);
+        border-bottom-left-radius: $half-border-radius;
+        border-bottom-right-radius: $half-border-radius;
     }
 
     &__input {
-        width: 100%;
+        width: 80%;
+        margin: .25rem;
+        border: 0;
+        border-radius: $half-border-radius;
+        background-color: $gray;
+        
     }
 
     &__submit {
         width: 60%;
+        border: 0;
+        border-radius: $half-border-radius;
+        background-color: $accent;
+        color: white;
+        margin-top: 1rem;
     }
 
     .checkbox-wrapper {
