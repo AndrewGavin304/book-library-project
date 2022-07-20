@@ -10,38 +10,55 @@ class Book {
 }
 
 addBookToLibrary = () => {
-title = prompt('What is the book\'s title?')
-author =  prompt('What is the book\'s author\'s name?')
-pages = prompt('How many pages is the book?')
-beenRead = prompt('Have you read it?')
-myLibrary.push(new Book(title, author, pages, beenRead));
+  title = prompt('What is the book\'s title?')
+  author =  prompt('What is the book\'s author\'s name?')
+  pages = prompt('How many pages is the book?')
+  beenRead = prompt('Have you read it?')
+  myLibrary.push(new Book(title, author, pages, beenRead));
+  createCard(myLibrary[myLibrary.length - 1])
 }
 
-myLibrary.push(new Book('Infinite Jest', 'David Foster Wallace', '852', 'Yes'))
+showAddBookForm = () => {
+  const addBookForm = document.querySelector(".form-wrapper");
+  if (addBookForm.style.display === 'none') {
+    addBookForm.style.display = 'flex';
+  }
+  else {
+    addBookForm.style.display = 'none';
+  }
+
+}
+
+const addBookBtn = document.querySelector(".add-book-wrapper__btn");
+addBookBtn.addEventListener('click', showAddBookForm);
+
 myLibrary.push(new Book('Infinite Jest', 'David Foster Wallace', '852', 'Yes'))
 myLibrary.push(new Book('Infinite Jest', 'David Foster Wallace', '852', 'Yes'))
 
-function showLibrary() {
+function initializeLibrary() {
   myLibrary.forEach(book => createCard(book));
 }
 
 function createCard(book) {
-  const newDiv = document.createElement("div")
-  newDiv.classList.add('display__card')
+  let library = document.querySelector(".library");
+  const newDiv = document.createElement("div");
+  newDiv.classList.add('library__card');
+  library.appendChild(newDiv);
 
-  const cardHeader = document.createElement("h1")
+  const cardHeader = document.createElement("span");
   cardHeader.textContent = book.title;
-  cardHeader.classList.add('display__title')
+  cardHeader.classList.add('library__title');
+  newDiv.appendChild(cardHeader);
 
-  const cardSubHeader = document.createElement("h2")
+  const cardSubHeader = document.createElement("span");
   cardSubHeader.textContent = book.author;
-  cardSubHeader.classList.add('display__author')
+  cardSubHeader.classList.add('library__author');
+  newDiv.appendChild(cardSubHeader);
 
-  const cardLengthDisplay = document.createElement("span")
-  cardLengthDisplay.textContent = book.pages;
-  cardLengthDisplay.classList.add('display__pages')
-
-  //TO-DO: append these items in order, display__card should be first appended to a primary display container to be created
+  const cardBookLength = document.createElement("span");
+  cardBookLength.textContent = `${book.pages} pages`;
+  cardBookLength.classList.add('library__pages');
+  newDiv.appendChild(cardBookLength);
 
   // const cardReadNotifier = document.createElement("span")
   // cardReadNotifier.textContent = book.beenRead;

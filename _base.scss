@@ -1,0 +1,84 @@
+html {
+    background-color: $gray;
+    font-size: 24px;
+
+}
+
+.body {
+    background-color: $gray;
+}
+
+.library-wrapper {
+    display: grid;
+    margin: 2rem;
+    background-color: darken($gray, 5);
+    border-radius: $base-border-radius;
+}
+
+.library {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+
+    &__card {
+        display: grid;
+        font-size: 24px;
+        grid-template-rows: 2rem 2rem 2rem;
+        width: clamp(8rem, 12rem, 16rem);
+        padding: 1rem;
+        margin: 2rem;
+        background-color: $primary;
+        border-radius: $base-border-radius;
+        justify-items: left;
+    }
+
+    &__title {
+        font-size: 32px;
+    }
+
+    &__author {
+        font-size: 24px;
+    }
+
+    &__pages {
+        font-size: 16px;
+    }
+}
+
+.add-book-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+
+    &__btn {
+        grid-column: 2;
+        height: 1.5em;
+    }
+
+}
+
+.form-wrapper {
+    display: none;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        gap: 8px;
+        background-color: $gray;
+        margin: 10px;
+    }
+
+    &__input {
+        width: 100%;
+    }
+
+    &__submit {
+        width: 60%;
+    }
+
+    .checkbox-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+    }
+}

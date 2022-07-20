@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/index.css">
   <title>Document</title>
 </head>
-<body>
-  
+<body class="body">
+  <div class="library-wrapper">
+    <div class="library">
+    </div>
+    <div class="add-book-wrapper">
+      <button class="btn add-book-wrapper__btn">+New Book</button>
+      <div class="form-wrapper" style="display:none">
+        <form class="form-wrapper__form">
+          <label for="title-input">Title:</label>
+          <input type="text" id="title-input" class="form-wrapper__input">
+          <label for="author-input">Author:</label>
+          <input type="text" id="author-input" class="form-wrapper__input">
+          <label for="pages-input">Pages:</label>
+          <input type="text" id="pages-input" class="form-wrapper__input">
+          <div class="checkbox-wrapper">
+          <input type="checkbox" id="read" name="read">
+          <label for="read">I've read this book</label>
+          </div>
+          <button type="submit" class="form-wrapper__submit">Submit book</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

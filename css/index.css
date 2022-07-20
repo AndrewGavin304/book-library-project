@@ -1,1 +1,73 @@
-/*# sourceMappingURL=index.css.map */
+html {
+  background-color: #EAE0CC;
+  font-size: 24px;
+}
+
+.body {
+  background-color: #EAE0CC;
+}
+
+.library-wrapper {
+  display: grid;
+  margin: 2rem;
+  background-color: #e3d5ba;
+  border-radius: 8px;
+}
+
+.library {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+.library__card {
+  display: grid;
+  font-size: 24px;
+  grid-template-rows: 2rem 2rem 2rem;
+  width: 12rem;
+  padding: 1rem;
+  margin: 2rem;
+  background-color: #A0A083;
+  border-radius: 8px;
+  justify-items: left;
+}
+.library__title {
+  font-size: 32px;
+}
+.library__author {
+  font-size: 24px;
+}
+.library__pages {
+  font-size: 16px;
+}
+
+.add-book-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+}
+.add-book-wrapper__btn {
+  grid-column: 2;
+  height: 1.5em;
+}
+
+.form-wrapper {
+  display: none;
+}
+.form-wrapper__form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 8px;
+  background-color: #EAE0CC;
+  margin: 10px;
+}
+.form-wrapper__input {
+  width: 100%;
+}
+.form-wrapper__submit {
+  width: 60%;
+}
+.form-wrapper .checkbox-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}/*# sourceMappingURL=index.css.map */
