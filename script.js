@@ -35,17 +35,10 @@ clearAddBookForm = () => {
   document.querySelector('.author-input').value = ''
   document.querySelector('.pages-input').value = ''
 }
-const addBookBtn = document.querySelector(".header__new-book");
-addBookBtn.addEventListener('click', showAddBookForm);
-
-myLibrary.push(new Book('Infinite Jest', 'David Foster Wallace', '852', 'Yes'))
-myLibrary.push(new Book('Infinite Jest', 'David Foster Wallace', '852', 'Yes'))
 
 function initializeLibrary() {
   myLibrary.forEach(book => createCard(book));
 }
-
-initializeLibrary();
 
 function createCard(book) {
   let library = document.querySelector(".library");
@@ -80,3 +73,11 @@ function createCard(book) {
     outerDiv.appendChild(readIndicator);
   }
 }
+
+const addBookBtn = document.querySelector(".header__new-book");
+addBookBtn.addEventListener('click', showAddBookForm);
+
+myLibrary.push(new Book('Infinite Jest', 'David Foster Wallace', '852', 'Yes'))
+myLibrary.push(new Book('Infinite Jest', 'David Foster Wallace', '852', 'Yes'))
+
+initializeLibrary();
