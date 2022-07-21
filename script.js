@@ -1,21 +1,25 @@
 let myLibrary = [];
 
 class Book {
-  constructor(title, author, pages, beenRead) {
+  constructor(title, author, pages, beenRead, id) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.beenRead = beenRead;
+    this.id = id;
   }
 }
 
-addBookToLibrary = () => {
+addBookToLibrary = (myLibrary) => {
   const title = document.querySelector('.title-input').value
   const author =  document.querySelector('.author-input').value
   const pages = document.querySelector('.pages-input').value
   const beenRead = true;
-  myLibrary.push(new Book(title, author, pages, beenRead));
-  createCard(myLibrary[myLibrary.length - 1])
+  const id = Date.now()
+  myLibrary.push(new Book(title, author, pages, beenRead, id));
+  console.log(myLibrary)
+  console.log(myLibrary.length)
+  createCard(myLibrary[myLibrary.length-1])
   showAddBookForm()
   clearAddBookForm()
 }
@@ -39,6 +43,13 @@ clearAddBookForm = () => {
 function initializeLibrary() {
   myLibrary.forEach(book => createCard(book));
 }
+
+deleteBookFromArray = (id) => {
+  const newArray = myLibrary.filter(book => book.id != id);
+  myLibrary = newArray;
+}
+
+deleteBookFromDisplay = (id) => {}
 
 function createCard(book) {
   let library = document.querySelector(".library");
@@ -66,6 +77,15 @@ function createCard(book) {
   cardBookLength.classList.add('library__pages');
   // innerDiv.appendChild(cardBookLength);
 
+  const deleteBtn = document.createElement("button");
+  deleteBtn.addEventListener("click", function (){
+    deleteBookFromArray(book.id)
+  });
+
+  deleteBtn.classList.add('btn', 'library__delete-book');
+  library.appendChild(deleteBtn);
+  // CALL DELETE FUNCTION ON BTN
+
   const read = document.querySelector('.read-input')
   if (read.checked) {
     const readIndicator = document.createElement("div");
@@ -74,10 +94,11 @@ function createCard(book) {
   }
 }
 
+
+
 const addBookBtn = document.querySelector(".header__new-book");
 addBookBtn.addEventListener('click', showAddBookForm);
 
-myLibrary.push(new Book('Infinite Jest', 'David Foster Wallace', '852', 'Yes'))
 myLibrary.push(new Book('Infinite Jest', 'David Foster Wallace', '852', 'Yes'))
 
 initializeLibrary();
