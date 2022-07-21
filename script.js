@@ -1,5 +1,11 @@
 let myLibrary = [];
 
+function uuidv4() {
+  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+  );
+}
+
 class Book {
   constructor(title, author, pages, beenRead, id) {
     this.title = title;
@@ -49,12 +55,18 @@ deleteBookFromArray = (id) => {
   myLibrary = newArray;
 }
 
-deleteBookFromDisplay = (id) => {}
+deleteBookFromDisplay = (id) => {
+  console.log(id)
+  const book = document.getElementById(`${id}`)
+  book.remove()
+}
 
 function createCard(book) {
   let library = document.querySelector(".library");
 
   const outerDiv = document.createElement("div");
+  const id = uuidv4();
+  outerDiv.setAttribute('id', `${id}`)
   outerDiv.classList.add('library__card-outer')
   library.appendChild(outerDiv);
 
@@ -77,9 +89,12 @@ function createCard(book) {
   cardBookLength.classList.add('library__pages');
   // innerDiv.appendChild(cardBookLength);
 
+  // console.log(classId);
+
   const deleteBtn = document.createElement("button");
   deleteBtn.addEventListener("click", function (){
-    deleteBookFromArray(book.id)
+    deleteBookFromArray(book.id);
+    deleteBookFromDisplay(id);
   });
 
   deleteBtn.classList.add('btn', 'library__delete-book');
