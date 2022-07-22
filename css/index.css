@@ -18,7 +18,8 @@ html {
   justify-items: center;
   margin: 0vh 10vw;
   background-color: #F0EAD2;
-  padding: 12px;
+  padding: 24px;
+  gap: 30px;
 }
 .library__card-outer {
   border-radius: 2px;
@@ -56,6 +57,9 @@ html {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   gap: 20px;
+  padding: 12px;
+  border: 1px solid;
+  border-color: #e2dad5;
 }
 .library__delete-book {
   background-color: #ADC178;

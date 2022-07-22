@@ -26,7 +26,8 @@ html {
     justify-items: center;
     margin: 0vh 10vw;
     background-color: $gray;
-    padding: 12px;
+    padding: 24px;
+    gap: 30px;
 
     &__card-outer {
         border-radius: $quarter-border-radius;
@@ -67,6 +68,9 @@ html {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
         gap: 20px;
+        padding: 12px;
+        border: 1px solid;
+        border-color: lighten($secondary, 50)
     }
 
     &__delete-book {
@@ -134,7 +138,6 @@ html {
         border: 0;
         border-radius: $half-border-radius;
         background-color: $gray;
-        
     }
 
     &__submit {
