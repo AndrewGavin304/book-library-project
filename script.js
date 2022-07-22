@@ -56,19 +56,41 @@ deleteBookFromArray = (id) => {
 }
 
 deleteBookFromDisplay = (id) => {
-  console.log(id)
   const book = document.getElementById(`${id}`)
   book.remove()
+}
+
+markRead = (id) => {
+  const book = document.getElementById(`${id}`)
+  book.beenRead = !book.beenRead;
+  const bookOuter = book.querySelector('.library__card-outer')
+
+  if (book.beenRead === true) {
+    const readIndicator = document.createElement("div");
+    readIndicator.classList.add('library__card-read');
+    console.log(bookOuter)
+    bookOuter.appendChild(readIndicator);
+  }
+
+  else {
+    const readIndicator = bookOuter.querySelector('.library__card-read');
+    console.log(readIndicator)
+    readIndicator.remove();
+  }
 }
 
 function createCard(book) {
   let library = document.querySelector(".library");
 
-  const outerDiv = document.createElement("div");
+  const bookWrapper = document.createElement("div");
   const id = uuidv4();
-  outerDiv.setAttribute('id', `${id}`)
+  bookWrapper.setAttribute('id', `${id}`)
+  bookWrapper.classList.add('library__card-wrapper')
+  library.appendChild(bookWrapper)
+
+  const outerDiv = document.createElement("div");
   outerDiv.classList.add('library__card-outer')
-  library.appendChild(outerDiv);
+  bookWrapper.appendChild(outerDiv);
 
   const innerDiv = document.createElement("div");
   innerDiv.classList.add('library__card-inner');
@@ -87,19 +109,24 @@ function createCard(book) {
   const cardBookLength = document.createElement("span");
   cardBookLength.textContent = `${book.pages} pages`;
   cardBookLength.classList.add('library__pages');
-  // innerDiv.appendChild(cardBookLength);
-
-  // console.log(classId);
 
   const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = 'Remove'
   deleteBtn.addEventListener("click", function (){
     deleteBookFromArray(book.id);
     deleteBookFromDisplay(id);
   });
-
   deleteBtn.classList.add('btn', 'library__delete-book');
-  library.appendChild(deleteBtn);
-  // CALL DELETE FUNCTION ON BTN
+  bookWrapper.appendChild(deleteBtn);
+
+  const readBtn = document.createElement("button");
+  readBtn.textContent = 'Read'
+  readBtn.addEventListener("click", function (){
+    markRead(id);
+  });
+  readBtn.classList.add('btn', 'library__read-book');
+  bookWrapper.appendChild(readBtn);
+
 
   const read = document.querySelector('.read-input')
   if (read.checked) {
@@ -108,8 +135,6 @@ function createCard(book) {
     outerDiv.appendChild(readIndicator);
   }
 }
-
-
 
 const addBookBtn = document.querySelector(".header__new-book");
 addBookBtn.addEventListener('click', showAddBookForm);

@@ -18,15 +18,17 @@ html {
   justify-items: center;
   margin: 0vh 10vw;
   background-color: #F0EAD2;
+  padding: 12px;
 }
 .library__card-outer {
   border-radius: 2px;
   background-color: #6C584C;
-  margin: 2rem;
   width: 12rem;
   overflow: hidden;
   height: 16rem;
   position: relative;
+  display: grid;
+  grid-column: 1/span 2;
 }
 .library__card-inner {
   display: grid;
@@ -49,6 +51,21 @@ html {
   top: -40px;
   transform: rotate(315deg);
 }
+.library__card-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+}
+.library__delete-book {
+  background-color: #ADC178;
+  border: none;
+  color: whitesmoke;
+  padding: 8px;
+  border-radius: 4px;
+  grid-row: 2;
+  grid-column: 1;
+}
 .library__title {
   font-size: 32px;
 }
@@ -56,20 +73,28 @@ html {
   font-size: 24px;
   margin-top: auto;
 }
+.library__read-book {
+  background-color: #ADC178;
+  border: none;
+  color: whitesmoke;
+  padding: 8px;
+  border-radius: 4px;
+  grid-row: 2;
+  grid-column: 2;
+}
 
 .header {
   position: relative;
 }
 .header__new-book {
-  height: 1.5em;
   background-color: #ADC178;
   border: none;
+  color: whitesmoke;
+  padding: 8px;
   border-radius: 4px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  width: 8em;
   margin: 5vh 10vw 0vh 10vw;
-  color: white;
 }
 
 .form-wrapper {

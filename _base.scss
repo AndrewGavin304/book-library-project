@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&display=swap');
 
+@mixin default-btn {
+    background-color: $accent;
+    border: none;
+    color: whitesmoke;
+    padding: 8px;
+    border-radius: $half-border-radius;
+}
+
 html {
     background-color: lighten($gray, 5);
     font-size: 24px;
@@ -18,15 +26,17 @@ html {
     justify-items: center;
     margin: 0vh 10vw;
     background-color: $gray;
+    padding: 12px;
 
     &__card-outer {
         border-radius: $quarter-border-radius;
         background-color: $secondary;
-        margin: 2rem;
         width: clamp(8rem, 12rem, 16rem);
         overflow: hidden;
         height: 16rem;
         position: relative;
+        display: grid;
+        grid-column: 1 / span 2;
     }
 
     &__card-inner {
@@ -52,6 +62,19 @@ html {
         transform: rotate(315deg);
     }
 
+    &__card-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+
+    &__delete-book {
+        @include default-btn;
+        grid-row: 2;
+        grid-column: 1;
+    }
+
     &__title {
         font-size: 32px;
     }
@@ -59,6 +82,12 @@ html {
     &__author {
         font-size: 24px;
         margin-top: auto;
+    }
+
+    &__read-book {
+        @include default-btn;
+        grid-row: 2;
+        grid-column: 2;
     }
 
     // &__pages {
@@ -70,15 +99,10 @@ html {
     position: relative;
 
     &__new-book {
-    height: 1.5em;
-    background-color: $accent;
-    border: none;
-    border-radius: $half-border-radius;
+    @include default-btn;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    width: 8em;
     margin: 5vh 10vw 0vh 10vw;
-    color: white;
     }
 }
 
